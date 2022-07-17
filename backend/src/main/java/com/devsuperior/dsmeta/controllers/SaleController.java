@@ -1,9 +1,5 @@
 package com.devsuperior.dsmeta.controllers;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,12 +29,7 @@ public class SaleController {
 			@RequestParam(value="maxDate", defaultValue="") String maxDate, 
 			Pageable pageable){
 		
-		LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
-		
-		LocalDate min = minDate.equals("") ? today.minusDays(365) : LocalDate.parse(minDate);
-		LocalDate max = maxDate.equals("") ? today : LocalDate.parse(maxDate);
-		
-		return service.findSales(min, max, pageable);
+		return service.findSales(minDate, maxDate, pageable);
 	}
 	
 	@GetMapping("{id}/notification")
