@@ -19,7 +19,7 @@ public class Sale {
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
-	private LocalDate Date;
+	private LocalDate date;
 	
 	public Sale() {
 		
@@ -66,10 +66,10 @@ public class Sale {
 	}
 
 	public LocalDate getDate() {
-		return Date;
+		return date;
 	}
 
 	public void setDate(LocalDate date) {
-		Date = date;
+		this.date = date;
 	}
 }
